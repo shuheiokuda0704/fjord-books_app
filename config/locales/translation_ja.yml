@@ -1,11 +1,30 @@
 ja:
   activerecord:
     models:
-      book: 本  #g
-
+      book: 書籍
     attributes:
       book:
-        author: 著者  #g
-        memo: メモ  #g
-        picture: 写真  #g
-        title: タイトル  #g
+        author: 著者
+        memo: メモ
+        picture: 画像
+        title: タイトル
+  method:
+    book:
+      new: 新規作成
+      show: 表示
+      edit: 編集
+      destroy: 削除
+    back: 戻る
+  page:
+    book:
+      index: 書籍
+      new: 書籍の登録
+      edit: 書籍の編集
+  notice:
+    book:
+      created: 書籍が登録されました
+      updated: 書籍が更新されました
+      destroyed: 書籍が削除されました
+  confirm:
+    book:
+      destroy: 削除します。よろしいですか？
