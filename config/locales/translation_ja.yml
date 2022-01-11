@@ -15,16 +15,18 @@ ja:
       edit: 編集
       destroy: 削除
     back: 戻る
-  page:
-    book:
-      index: 書籍
-      new: 書籍の登録
-      edit: 書籍の編集
-  notice:
-    book:
-      created: 書籍が登録されました
-      updated: 書籍が更新されました
-      destroyed: 書籍が削除されました
-  confirm:
-    book:
-      destroy: 削除します。よろしいですか？
+  books:
+    index:
+      title: 書籍
+      confirm:
+        destroy: 削除します。よろしいですか？
+    new: 
+      title: 書籍の登録
+    edit:
+      title: 書籍の編集
+    create:
+      success: 書籍が登録されました
+    update:
+      success: 書籍が更新されました
+    destroy:
+      success: 書籍が削除されました

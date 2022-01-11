@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= Book.model_name.human %></h1>
+<h1><%= t '.title' %></h1>
 
 <table>
   <thead>
@@ -22,7 +22,7 @@
         <td><%= book.picture %></td>
         <td><%= link_to t('method.book.show'), book %></td>
         <td><%= link_to t('method.book.edit'), edit_book_path(book) %></td>
-        <td><%= link_to t('method.book.destroy'), book, method: :delete, data: { confirm: t('confirm.book.destroy') } %></td>
+        <td><%= link_to t('method.book.destroy'), book, method: :delete, data: { confirm: t('.confirm.destroy') } %></td>
       </tr>
     <% end %>
   </tbody>

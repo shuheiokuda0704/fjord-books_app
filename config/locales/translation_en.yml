@@ -15,16 +15,18 @@ en:
       edit: Edit
       destroy: Destroy
     back: Back
-  page:
-    book:
-      index: Books
-      new: New Book
-      edit: Editing Book
-  notice:
-    book:
-      created: Book was successfully created.
-      updated: Book was successfully updated.
-      destroyed: Book was successfully destroyed.
-  confirm:
-    book:
-      destroy: Are you sure?
+  books:
+    index:
+      title: Books
+      confirm:
+        destroy: Are you sure?
+    new: 
+      title: New Book
+    edit:
+      title: Editing Book
+    create:
+      success: Book was successfully created.
+    update:
+      success: Book was successfully updated.
+    destroy:
+      success: Book was successfully destroyed.
