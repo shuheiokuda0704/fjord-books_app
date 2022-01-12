@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      book: 書籍
+    attributes:
+      book:
+        author: 著者
+        memo: メモ
+        picture: 画像
+        title: タイトル
+  method:
+    book:
+      new: 新規作成
+      show: 表示
+      edit: 編集
+      destroy: 削除
+    back: 戻る
+  books:
+    index:
+      title: 書籍
+      confirm:
+        destroy: 削除します。よろしいですか？
+    new: 
+      title: 書籍の登録
+    edit:
+      title: 書籍の編集
+    create:
+      success: 書籍が登録されました
+    update:
+      success: 書籍が更新されました
+    destroy:
+      success: 書籍が削除されました
