@@ -7,8 +7,6 @@ class UserTest < ActiveSupport::TestCase
     @user_one = users(:one)
     @user_two = users(:two)
     @user_three_no_relations = users(:three_no_relations)
-    relationships(:one)
-    relationships(:two)
   end
 
   test "followings? returns true" do
