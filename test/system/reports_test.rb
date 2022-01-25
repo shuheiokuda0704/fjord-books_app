@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   include Warden::Test::Helpers
@@ -51,7 +51,7 @@ class ReportsTest < ApplicationSystemTestCase
 
     visit reports_url
     page.accept_confirm do
-      click_on  I18n.t('views.common.destroy'), match: :first
+      click_on I18n.t('views.common.destroy'), match: :first
     end
 
     assert_text I18n.t('controllers.common.notice_destroy', name: Report.model_name.human)

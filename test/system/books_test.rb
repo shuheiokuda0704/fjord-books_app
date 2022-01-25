@@ -50,7 +50,7 @@ class BooksTest < ApplicationSystemTestCase
 
     visit books_url
     page.accept_confirm do
-      click_on  I18n.t('views.common.destroy'), match: :first
+      click_on I18n.t('views.common.destroy'), match: :first
     end
 
     assert_text I18n.t('controllers.common.notice_destroy', name: Book.model_name.human)
