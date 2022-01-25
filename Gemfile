@@ -38,6 +38,7 @@ end
 group :development do
   gem 'dummy_text_jp'
   gem 'faker'
+  gem 'heavens_door'
   gem 'i18n_generators'
   gem 'letter_opener_web'
   gem 'listen', '~> 3.3'

@@ -103,6 +103,7 @@ GEM
     ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    heavens_door (0.3.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     i18n_generators (2.2.2)
@@ -292,6 +293,7 @@ DEPENDENCIES
   devise-i18n
   dummy_text_jp
   faker
+  heavens_door
   i18n_generators
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
