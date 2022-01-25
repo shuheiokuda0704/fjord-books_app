@@ -56,4 +56,31 @@ class ReportsTest < ApplicationSystemTestCase
 
     assert_text I18n.t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
+
+  test 'transiting to the Book index' do
+    login_as(@user, scope: :user)
+
+    visit reports_url
+    click_on Book.model_name.human, match: :prefer_exact
+
+    assert_selector 'h1', text: Book.model_name.human
+  end
+
+  test 'transiting to the User index' do
+    login_as(@user, scope: :user)
+
+    visit reports_url
+    click_on User.model_name.human, match: :prefer_exact
+
+    assert_selector 'h1', text: User.model_name.human
+  end
+
+  test 'transiting to the Report index' do
+    login_as(@user, scope: :user)
+
+    visit reports_url
+    click_on Report.model_name.human, match: :prefer_exact
+
+    assert_selector 'h1', text: Report.model_name.human
+  end
 end
