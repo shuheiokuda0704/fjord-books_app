@@ -10,8 +10,6 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'editable? returns true' do
-    puts @user_one.reports
-    puts @report_one
     assert_equal @user_one, @report_one.user
     assert @report_one.editable? @user_one
   end
