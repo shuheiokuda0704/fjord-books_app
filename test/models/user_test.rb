@@ -27,26 +27,26 @@ class UserTest < ActiveSupport::TestCase
 
   test 'follow creates new relations' do
     @user_one.follow @user_three_no_relations
-    assert @user_one.following?(@user_three_no_relations)
-    assert @user_three_no_relations.followed_by?(@user_one)
+    assert @user_one.followings.find_by(id: @user_three_no_relations.id)
+    assert @user_three_no_relations.followers.find_by(id: @user_one.id)
   end
 
   test 'follow finds relations' do
     @user_one.follow @user_two
-    assert @user_one.following?(@user_two)
-    assert @user_two.followed_by?(@user_one)
+    assert @user_one.followings.find_by(id: @user_two.id)
+    assert @user_two.followers.find_by(id: @user_one.id)
   end
 
   test 'unfollow destroys existing relations' do
     @user_one.unfollow @user_two
-    assert_not @user_one.following?(@user_two)
-    assert_not @user_two.followed_by?(@user_one)
+    assert_not @user_one.followings.find_by(id: @user_two.id)
+    assert_not @user_two.followers.find_by(id: @user_one.id)
   end
 
   test 'unfollow does not destroy not-existing relations' do
     @user_one.unfollow @user_three_no_relations
-    assert_not @user_one.following?(@user_three_no_relations)
-    assert_not @user_three_no_relations.followed_by?(@user_one)
+    assert_not @user_one.followings.find_by(id: @user_three_no_relations.id)
+    assert_not @user_three_no_relations.followers.find_by(id: @user_one.id)
   end
 
   test 'name_or_email returns name' do
