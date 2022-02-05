@@ -38,6 +38,7 @@ end
 group :development do
   gem 'dummy_text_jp'
   gem 'faker'
+  gem 'heavens_door'
   gem 'i18n_generators'
   gem 'letter_opener_web'
   gem 'listen', '~> 3.3'
@@ -52,6 +53,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
