@@ -20,7 +20,7 @@ class UsersControllerTest < ActionController::TestCase
   test 'should get show' do
     sign_in @user
 
-    get users_show_url
+    get user_url(@user)
     assert_response :success
   end
 end
