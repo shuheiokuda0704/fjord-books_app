@@ -46,7 +46,7 @@ User.create!(
   email: 'test@test.com',
   zipcode: '0123456',
   address: '東京都渋谷区神宮前1',
-  password:'1234567'
+  password: '1234567'
 )
 
 50.times do
@@ -54,7 +54,7 @@ User.create!(
     email: Faker::Internet.email,
     zipcode: Faker::Address.zip,
     address: Faker::Address.full_address,
-    password:'1234567'
+    password: '1234567'
   )
 end
 
