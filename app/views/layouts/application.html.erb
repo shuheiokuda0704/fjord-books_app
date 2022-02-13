@@ -16,7 +16,7 @@
     <%= yield %>
 
     <% if user_signed_in? %>
-      <%= link_to(t('devise.view.profile'), edit_user_registration_path) %>
+      | <%= link_to(t('devise.view.profile'), user_path(current_user)) %>
       <%= link_to(t('devise.view.logout'), destroy_user_session_path, method: 'delete') %>
     <% end %>
   </body>
