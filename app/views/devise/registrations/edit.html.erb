@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= f.label :introduction %><br />
-    <%= f.text_field :introduction, autofocus: true %>
+    <%= f.text_area :introduction, autofocus: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
