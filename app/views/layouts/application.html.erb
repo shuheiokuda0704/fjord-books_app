@@ -16,6 +16,8 @@
     <%= yield %>
 
     <% if user_signed_in? %>
+      | <%= link_to(t(Book.model_name.human), books_path) %>
+      <%= link_to(t(User.model_name.human), users_path) %>
       | <%= link_to(t('devise.view.profile'), user_path(current_user)) %>
       <%= link_to(t('devise.view.logout'), destroy_user_session_path, method: 'delete') %>
     <% end %>
