@@ -2,13 +2,24 @@
 
 require 'test_helper'
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
+class UsersControllerTest < ActionController::TestCase
+  include Devise::Test::IntegrationHelpers # Rails >= 5
+
+  setup do
+    @user = users(:one)
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+  end
+
   test 'should get index' do
-    get users_index_url
+    sign_in @user
+
+    get users_url
     assert_response :success
   end
 
   test 'should get show' do
+    sign_in @user
+
     get users_show_url
     assert_response :success
   end
