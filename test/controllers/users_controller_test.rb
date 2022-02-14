@@ -2,12 +2,11 @@
 
 require 'test_helper'
 
-class UsersControllerTest < ActionController::TestCase
+class UsersControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers # Rails >= 5
 
   setup do
     @user = users(:one)
-    @request.env['devise.mapping'] = Devise.mappings[:user]
   end
 
   test 'should get index' do
@@ -17,10 +16,20 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should redirect when not logged in (index)' do
+    get users_url
+    assert_response :redirect
+  end
+
   test 'should get show' do
     sign_in @user
 
     get user_url(@user)
     assert_response :success
+  end
+
+  test 'should redirect when not logged in (show)' do
+    get user_url(@user)
+    assert_response :redirect
   end
 end
