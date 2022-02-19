@@ -1,8 +1,8 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
 
 <p>
-  <strong><%= User.human_attribute_name(:avator) %>:</strong>
-  <%= @user.avatar.variant(:thumbnail) %>
+  <strong><%= User.human_attribute_name(:avatar) %>:</strong>
+  <%= image_tag @user.avatar.variant(resize: '200x200') %>
 </p>
 
 <p>

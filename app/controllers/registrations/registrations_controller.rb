@@ -5,9 +5,12 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+    if sign_up_params[:avatar].present?
+      User.avatar.attach(sign_up_params[:avatar])
+    end
+  end
 
   # POST /resource
   # def create
@@ -20,9 +23,12 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    if account_update_params[:avatar].present?
+      current_user.avatar.attach(account_update_params[:avatar])
+    end
+  end
 
   # DELETE /resource
   # def destroy
