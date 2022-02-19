@@ -2,7 +2,7 @@
 
 <p>
   <strong><%= User.human_attribute_name(:avatar) %>:</strong>
-  <%= image_tag @user.avatar.variant(resize: '200x200') %>
+  <%= image_tag @user.avatar.variant(resize: '200x200') if @user.avatar.attached? %>
 </p>
 
 <p>
