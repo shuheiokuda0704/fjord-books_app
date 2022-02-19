@@ -7,9 +7,7 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super
-    if sign_up_params[:avatar].present?
-      User.avatar.attach(sign_up_params[:avatar])
-    end
+    User.avatar.attach(sign_up_params[:avatar]) if sign_up_params[:avatar].present?
   end
 
   # POST /resource
@@ -25,9 +23,7 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
-    if account_update_params[:avatar].present?
-      current_user.avatar.attach(account_update_params[:avatar])
-    end
+    current_user.avatar.attach(account_update_params[:avatar]) if account_update_params[:avatar].present?
   end
 
   # DELETE /resource
