@@ -44,7 +44,7 @@ Book.create!(
 end
 
 User.create!(
-  email: 'test@test.com',
+  email: 'test@example.com',
   zipcode: '0123456',
   address: '東京都渋谷区神宮前1',
   password: '1234567'
