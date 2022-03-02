@@ -2,6 +2,9 @@
 
 one:
   user: one
+  following_user: three
 
 two:
   user: two
+  following_user: three
+
