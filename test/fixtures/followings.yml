@@ -1,10 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  following_user: three
+one_two:
+  user_id: 1
+  following_user_id: 2
 
-two:
-  user: two
-  following_user: three
+two_three:
+  user_id: 2
+  following_user_id: 3
 
+one_three:
+  user_id: 1
+  following_user_id: 3

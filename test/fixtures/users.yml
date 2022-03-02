@@ -1,3 +1,12 @@
-one: {}
+one:
+  id: 1
+  name: one
+  email: user_one@example.com
 
-two: {}
+two:
+  id: 2
+  email: user_two@example.com
+
+three:
+  id: 3
+  email: user_three@example.com
