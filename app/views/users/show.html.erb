@@ -35,5 +35,11 @@
 
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
+<% else %>
+  <% unless @follow %>
+    <%= link_to 'フォローする', { controller: :followings, action: :create, following_user_id: @user.id }, method: :post %> |
+  <% else %>
+    <%= link_to 'フォロー解除', following_path(@follow), method: :delete %> |
+  <% end %>
 <% end %>
 <%= link_to t('views.common.back'), users_path %>
