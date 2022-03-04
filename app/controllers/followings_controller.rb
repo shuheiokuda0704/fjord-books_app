@@ -5,7 +5,7 @@ class FollowingsController < ApplicationController
     @following = Following.new(user: current_user, following_user_id: following_params[:following_user_id])
     respond_to do |format|
       if @following.save
-        format.html { redirect_to user_path(id: @following.following_user_id), notice: 'フォローしました' }
+        format.html { redirect_to user_path(id: @following.following_user_id), notice: t('controllers.followings.notice_create') }
         format.json { render 'users/show', status: :created, location: @following.following_user }
       else
         format.html { redirect_to user_path(id: @following.following_user_id) }
@@ -18,7 +18,7 @@ class FollowingsController < ApplicationController
     @following = Following.find(params[:id])
     @following.destroy
     respond_to do |format|
-      format.html { redirect_to user_path(@following.following_user_id), notice: 'フォロー解除しました' }
+      format.html { redirect_to user_path(@following.following_user_id), notice: t('controllers.followings.notice_destroy') }
       format.json { head :no_content }
     end
   end

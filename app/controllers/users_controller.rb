@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def followings
-    @title = 'フォロー中'
+    @title = t('views.followings.followings')
     @user = User.find(params[:id])
     @users = @user.followings.with_attached_avatar.order(:id).page(params[:page])
 
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @title = 'フォロワー'
+    @title = t('views.followings.followers')
     @user = User.find(params[:id])
     @users = @user.followers.with_attached_avatar.order(:id).page(params[:page])
 

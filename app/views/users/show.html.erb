@@ -34,17 +34,17 @@
 </p>
 
 <p>
-  <%= link_to "#{@user.followings.count} フォロー中", followings_user_path(@user) %> | 
-  <%= link_to "#{@user.followers.count} フォロワー", followers_user_path(@user) %>
+  <%= link_to "#{@user.followings.count} #{t('views.followings.followings')}", followings_user_path(@user) %> | 
+  <%= link_to "#{@user.followers.count} #{t('views.followings.followers')}", followers_user_path(@user) %>
 <p>
 
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% else %>
   <% unless @follow %>
-    <%= link_to 'フォローする', { controller: :followings, action: :create, following_user_id: @user.id }, method: :post %> |
+    <%= link_to t('views.followings.follow'), { controller: :followings, action: :create, following_user_id: @user.id }, method: :post %> |
   <% else %>
-    <%= link_to 'フォロー解除', following_path(@follow), method: :delete %> |
+    <%= link_to t('views.followings.unfollow'), following_path(@follow), method: :delete %> |
   <% end %>
 <% end %>
 <%= link_to t('views.common.back'), users_path %>
