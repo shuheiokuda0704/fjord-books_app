@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class FollowingTest < ActiveSupport::TestCase
   setup do
@@ -14,7 +16,7 @@ class FollowingTest < ActiveSupport::TestCase
   end
 
   test 'belong_to: :following_user association' do
-    assert_equal @user_two, @following_one_two.following_user 
+    assert_equal @user_two, @following_one_two.following_user
   end
 
   test 'unique constraint for a pair of user and following_user' do

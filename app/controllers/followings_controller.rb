@@ -6,7 +6,7 @@ class FollowingsController < ApplicationController
     respond_to do |format|
       if @following.save
         format.html { redirect_to user_path(id: @following.following_user_id), notice: 'フォローしました' }
-        format.json { render 'users/show', status: :created, location: @following.following_user}
+        format.json { render 'users/show', status: :created, location: @following.following_user }
       else
         format.html { redirect_to user_path(id: @following.following_user_id) }
         format.json { render json: @following.errors, status: :unprocessable_entity }
