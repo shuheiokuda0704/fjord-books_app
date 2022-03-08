@@ -41,10 +41,10 @@
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% else %>
-  <% unless @follow %>
-    <%= link_to t('views.followings.follow'), { controller: :followings, action: :create, following_user_id: @user.id }, method: :post %> |
-  <% else %>
+  <% if @follow %>
     <%= link_to t('views.followings.unfollow'), following_path(@follow), method: :delete %> |
+  <% else %>
+    <%= link_to t('views.followings.follow'), { controller: :followings, action: :create, following_user_id: @user.id }, method: :post %> |
   <% end %>
 <% end %>
 <%= link_to t('views.common.back'), users_path %>
