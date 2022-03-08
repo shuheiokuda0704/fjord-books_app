@@ -34,8 +34,8 @@
 </p>
 
 <p>
-  <%= link_to "#{@user.followings.count} #{t('views.followings.followings')}", followings_user_path(@user) %> | 
-  <%= link_to "#{@user.followers.count} #{t('views.followings.followers')}", followers_user_path(@user) %>
+  <%= link_to "#{@user.followings.count} #{t('views.followings.followings')}", user_followings_path(@user) %> | 
+  <%= link_to "#{@user.followers.count} #{t('views.followings.followers')}", user_followers_path(@user) %>
 <p>
 
 <% if current_user == @user %>

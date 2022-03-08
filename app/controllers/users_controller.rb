@@ -10,20 +10,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @follow = Following.find_by(user: current_user, following_user: @user)
   end
-
-  def followings
-    @title = t('views.followings.followings')
-    @user = User.find(params[:id])
-    @users = @user.followings.with_attached_avatar.order(:id).page(params[:page])
-
-    render 'index'
-  end
-
-  def followers
-    @title = t('views.followings.followers')
-    @user = User.find(params[:id])
-    @users = @user.followers.with_attached_avatar.order(:id).page(params[:page])
-
-    render 'index'
-  end
 end
