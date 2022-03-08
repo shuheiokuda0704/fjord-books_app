@@ -12,7 +12,7 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    @following = Following.find(params[:id])
+    @following = current_user.following_relations.find(params[:id])
     @following.destroy
 
     redirect_to user_path(@following.following_user_id), notice: t('controllers.followings.notice_destroy')
