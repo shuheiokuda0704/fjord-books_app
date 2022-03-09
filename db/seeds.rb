@@ -86,4 +86,34 @@ User.order(id: :desc).each do |user|
   end
 end
 
+Report.destroy_all
+
+Report.transaction do # rubocop:disable Metrics/BlockLength
+  Report.create!(
+    title: '1月1日',
+    content: '初日です。がんばります',
+    user_id: 1
+  )
+
+  Report.create!(
+    title: '1月2日',
+    content: '2日目です。ﾅﾆﾓﾜｶﾗﾅｲ',
+    user_id: 1
+  )
+
+  Report.create!(
+    title: '1月3日',
+    content: '3日目です。完全に理解した',
+    user_id: 1
+  )
+
+  55.times do |index|
+    Report.create!(
+      title: Faker::Lorem.word,
+      content: Faker::Lorem.word,
+      user_id: index + 1
+    )
+  end
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
