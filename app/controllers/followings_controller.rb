@@ -5,9 +5,9 @@ class FollowingsController < ApplicationController
     @following = current_user.following_relations.new(following_user_id: following_params[:following_user_id])
 
     if @following.save
-      redirect_to user_path(id: @following.following_user_id), notice: t('controllers.followings.notice_create')
+      redirect_to user_path(@following.following_user_id), notice: t('controllers.followings.notice_create')
     else
-      redirect_to user_path(id: @following.following_user_id)
+      redirect_to user_path(@following.following_user_id)
     end
   end
 
