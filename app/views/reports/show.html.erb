@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= Report.human_attribute_name(:title)%>:</strong>
   <%= @report.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= Report.human_attribute_name(:content)%>:</strong>
   <%= @report.content %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:created_at)%>:</strong>
+  <%= l @report.created_at, format: :month_day %>
 </p>
 
 <%= link_to 'Edit', edit_report_path(@report) %> |
