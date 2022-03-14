@@ -17,7 +17,7 @@
 
 <p>
   <strong><%= Report.human_attribute_name(:created_at)%>:</strong>
-  <%= l @report.created_at, format: :month_day %>
+  <%= l @report.created_at, format: :ymd %>
 </p>
 
 <% if @report.user.eql? current_user %>
