@@ -68,10 +68,13 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
     login_as(@user_one, scope: :user)
 
     assert_no_difference('Report.count') do
-      patch report_url(@report_one), params: { report: { content: @report_one.content, title: @report_one.title } }
+      patch report_url(@report_one), params: { report: { content: @report_two.content, title: @report_two.title } }
     end
 
-    # TODO: コンテンツが更新されたことを確認
+    report = Report.find(@report_one.id)
+
+    assert_equal @report_two.title, report.title
+    assert_equal @report_two.content, report.content
     assert_redirected_to report_url(@report_one)
   end
 
@@ -79,11 +82,14 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
     login_as(@user_two, scope: :user)
 
     assert_no_difference('Report.count') do
-      patch report_url(@report_one), params: { report: { content: @report_one.content + "X", title: @report_one.title + "X"} }
+      patch report_url(@report_one), params: { report: { content: @report_two.content, title: @report_two.title } }
     end
 
-    # TODO: コンテンツが更新されていないことを確認
+    report = Report.find(@report_one.id)
+
     assert_response :redirect
+    assert_equal @report_one.title, report.title
+    assert_equal @report_one.content, report.content
     assert_redirected_to report_url(@report_one)
   end
 
