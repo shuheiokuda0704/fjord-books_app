@@ -22,20 +22,9 @@
 
 <hr>
 
-<h2>コメント</h2>
+<%= render 'shared/comment_list', commentable: @book %>
 
-<% @book.comments.each do |comment| %>
-  <div>
-    <header>
-      <%= comment.user.name %>
-      <%= l(comment.created_at, format: :ymd) %>
-    </header>
-    <div>
-      <%= comment.comment %>
-    </div>
-  </div>
-  </br>
-<% end %>
+<hr>
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>

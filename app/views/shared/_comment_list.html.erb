@@ -1,0 +1,18 @@
+<h2>コメント</h2>
+<% if commentable.comments.empty? %>
+  <div>コメントはありません</div>
+<% else %>
+  <% commentable.comments.each do |comment| %>
+    <div>
+      <header>
+        <%= comment.user.name %>
+        <%= l(comment.created_at, format: :ymd) %>
+      </header>
+      <div>
+        <%= comment.comment %>
+      </div>
+    </div>
+    <br>
+  <% end %>
+<% end %>
+<br>

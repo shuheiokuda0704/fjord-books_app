@@ -18,6 +18,12 @@
   <%= l @report.created_at, format: :ymd %>
 </p>
 
+<hr>
+
+<%= render 'shared/comment_list', commentable: @report %>
+
+<hr>
+
 <% if @report.user.eql? current_user %>
   <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
   <%= link_to t('views.common.destroy'), @report, method: :delete, data: { confirm: t('views.common.delete_confirm') } %> |
