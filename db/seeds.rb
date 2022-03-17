@@ -116,4 +116,40 @@ Report.transaction do # rubocop:disable Metrics/BlockLength
   end
 end
 
+Comment.destroy_all
+
+Comment.transaction do # rubocop:disable Metrics/BlockLength
+  10.times do |index|
+    Comment.create!(
+      comment: "(・∀・)ｲｲﾈ!! #{index + 1}",
+      user_id: index + 1,
+      commentable_id: 1,
+      commentable_type: 'Book'
+    )
+
+    Comment.create!(
+      comment: "(・∀・)ｲｲﾈ!! #{index + 1}",
+      user_id: index + 1,
+      commentable_id: 1,
+      commentable_type: 'Report'
+    )
+  end
+
+  55.times do |index|
+    Comment.create!(
+      comment: "(≧∇≦)b #{index + 1}",
+      user_id: index + 1,
+      commentable_id: index + 1,
+      commentable_type: 'Book'
+    )
+
+    Comment.create!(
+      comment: "(≧∇≦)b #{index + 1}",
+      user_id: index + 1,
+      commentable_id: index + 1,
+      commentable_type: 'Report'
+    )
+  end
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
