@@ -205,6 +205,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
       ymd: "%Y年%-m月%-d日"
+      ymdhms: "%Y年%-m月%-d日(%a) %-H時%-M分%-S秒"
     pm: 午後
   views:
     common:
