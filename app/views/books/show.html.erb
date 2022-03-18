@@ -23,7 +23,8 @@
 <hr>
 
 <%= render 'shared/comment_list', commentable: @book %>
-
+<br>
+<%= render 'shared/comment_form', commentable: @book %>
 <hr>
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
