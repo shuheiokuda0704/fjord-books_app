@@ -1,7 +1,7 @@
 <%= form_with(model: Comment.new) do |form| %>
   <div class="field">
     <%= form.label :comment %>
-    <%= form.text_field :comment %>
+    <%= form.text_field :comment, required: true %>
   </div>
 
   <div>
