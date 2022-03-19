@@ -10,6 +10,11 @@
       </header>
       <div>
         <%= comment.comment %>
+        <% if comment.user.eql? current_user %>
+          <br>
+          <%= link_to t('views.common.edit'), [:edit, commentable, comment] %></td>
+          <%= link_to t('views.common.destroy'), [commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+        <% end %>
       </div>
     </div>
     <br>

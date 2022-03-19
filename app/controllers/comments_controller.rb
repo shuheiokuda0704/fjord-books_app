@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_comment, only: %i[ edit update destroy ]
+
+  def edit
+  end
 
   def create
     @comment = Comment.new(comment_params)
@@ -13,7 +16,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to @comment, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+      redirect_to @comment.commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
       redirect_to @comment.commentable, notice: t('controllers.common.notice_update_error', name: Comment.model_name.human)
     end
