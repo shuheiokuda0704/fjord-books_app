@@ -5,7 +5,7 @@
   <% commentable.comments.each do |comment| %>
     <div>
       <header>
-        <%= comment.user.name %>
+        <%= comment.user.name || comment.user.email %>
         <%= l(comment.created_at, format: :ymdhms) %>
       </header>
       <div>
