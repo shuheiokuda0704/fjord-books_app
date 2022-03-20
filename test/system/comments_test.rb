@@ -1,49 +1,88 @@
 require "application_system_test_case"
 
 class CommentsTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @comment = comments(:one)
+    @comment_report1_user1 = comments(:report1user1)
+
+    @user_one = users(:one)
+    sign_in @user_one
   end
 
-  test "visiting the index" do
-    visit comments_url
-    assert_selector "h1", text: "Comments"
+  test "creating a Comment for a Report" do
+    visit reports_url
+    click_on "詳細", match: :first
+
+    fill_in "コメント", with: @comment_report1_user1.comment
+    click_on "登録する"
+
+    assert_text "コメントが作成されました。"
+    click_on "戻る"
   end
 
-  test "creating a Comment" do
-    visit comments_url
-    click_on "New Comment"
+  test "updating a Comment for a Report" do
+    visit reports_url
 
-    fill_in "Comment", with: @comment.comment
-    fill_in "Commentable", with: @comment.commentable_id
-    fill_in "Commentable type", with: @comment.commentable_type
-    fill_in "User", with: @comment.user_id
-    click_on "Create Comment"
+    click_on "詳細", match: :first
 
-    assert_text "Comment was successfully created"
-    click_on "Back"
+    sleep 1 # Wait a 1 sec to render "編集" for comments
+
+    click_on "編集", match: :prefer_exact
+
+    fill_in "コメント", with: @comment_report1_user1.comment
+    click_on "更新する"
+    
+    assert_text "コメントが更新されました。"
+    click_on "戻る"
   end
 
-  test "updating a Comment" do
-    visit comments_url
-    click_on "Edit", match: :first
+  test "destroying a Comment for a Report" do
+    visit reports_url
+    click_on "詳細", match: :first
 
-    fill_in "Comment", with: @comment.comment
-    fill_in "Commentable", with: @comment.commentable_id
-    fill_in "Commentable type", with: @comment.commentable_type
-    fill_in "User", with: @comment.user_id
-    click_on "Update Comment"
-
-    assert_text "Comment was successfully updated"
-    click_on "Back"
-  end
-
-  test "destroying a Comment" do
-    visit comments_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "削除", match: :first
     end
 
-    assert_text "Comment was successfully destroyed"
+    assert_text "コメントが削除されました。"
+  end
+
+  test "creating a Comment for a Book" do
+    visit books_url
+    click_on "詳細", match: :first
+
+    fill_in "コメント", with: @comment_report1_user1.comment
+    click_on "登録する"
+
+    assert_text "コメントが作成されました。"
+    click_on "戻る"
+  end
+
+  test "updating a Comment for a Book" do
+    visit books_url
+
+    click_on "詳細", match: :first
+
+    sleep 1 # Wait a 1 sec to render "編集" for comments
+
+    click_on "編集", match: :prefer_exact
+
+    fill_in "コメント", with: @comment_report1_user1.comment
+    click_on "更新する"
+    
+    assert_text "コメントが更新されました。"
+    click_on "戻る"
+  end
+
+  test "destroying a Comment for a Book" do
+    visit books_url
+    click_on "詳細", match: :first
+
+    page.accept_confirm do
+      click_on "削除", match: :first
+    end
+
+    assert_text "コメントが削除されました。"
   end
 end
