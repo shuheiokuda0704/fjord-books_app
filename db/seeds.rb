@@ -88,7 +88,7 @@ end
 
 Report.destroy_all
 
-Report.transaction do # rubocop:disable Metrics/BlockLength
+Report.transaction do
   Report.create!(
     title: '1月1日',
     content: '初日です。がんばります',
