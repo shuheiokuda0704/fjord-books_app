@@ -6,7 +6,7 @@ class CommentTest < ActiveSupport::TestCase
   setup do
     @user1 = users(:one)
     @book1 = books(:one)
-    @report = reports(:one)
+    @report1 = reports(:one)
     @comment_book1user1 = comments(:book1user1)
     @comment_report1user1 = comments(:report1user1)
   end
