@@ -43,6 +43,8 @@ class CommentsTest < ApplicationSystemTestCase
     visit reports_url
     click_on '詳細', match: :first
 
+    sleep 1 # Wait a 1 sec to render "削除" for comments
+
     page.accept_confirm do
       click_on '削除', match: :first
     end
@@ -80,6 +82,8 @@ class CommentsTest < ApplicationSystemTestCase
   test 'destroying a Comment for a Book' do
     visit books_url
     click_on '詳細', match: :first
+
+    sleep 1 # Wait a 1 sec to render "削除" for comments
 
     page.accept_confirm do
       click_on '削除', match: :first
