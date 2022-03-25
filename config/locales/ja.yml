@@ -250,6 +250,7 @@ ja:
       notice_destroy: "%{name}が削除されました。"
       notice_create_error: "%{name}の作成に失敗しました。"
       notice_update_error: "%{name}の更新に失敗しました。"
+      notice_destroy_error: "%{name}が削除に失敗しました。"
   relationships:
     create:
       notice: "フォローしました。"
