@@ -30,7 +30,7 @@ class ReportsController < ApplicationController
 
   def update
     @report = current_user.reports.find_by(id: params[:id])
-    redirect_to report_url unless @report
+    return redirect_to report_url unless @report
 
     if @report.update(report_params)
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
@@ -41,7 +41,7 @@ class ReportsController < ApplicationController
 
   def destroy
     @report = current_user.reports.find_by(id: params[:id])
-    redirect_to report_url unless @report
+    return redirect_to report_url unless @report
 
     @report.destroy
     redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
