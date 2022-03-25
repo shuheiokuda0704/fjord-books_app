@@ -1,0 +1,11 @@
+one:
+  id: 1
+  title: title-one
+  content: content-one
+  user_id: 1
+
+two:
+  id: 2
+  title: title-two
+  content: content-two
+  user_id: 2

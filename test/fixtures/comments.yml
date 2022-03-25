@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+book1user1:
+  id: 111
+  comment: book1-user1
+  user_id: 1
+  commentable_id: 1
+  commentable_type: 'Book'
+
+book1user2:
+  id: 112
+  comment: book1-user2
+  user_id: 2
+  commentable_id: 1
+  commentable_type: 'Book'
+
+book2user1:
+  id: 121
+  comment: book2-user1
+  user_id: 1
+  commentable_id: 2
+  commentable_type: 'Book'
+
+report1user1:
+  id: 211
+  comment: report1-user1
+  user_id: 1
+  commentable_id: 1
+  commentable_type: 'Report'
+
+report1user2:
+  id: 212
+  comment: report1-user2
+  user_id: 2
+  commentable_id: 1
+  commentable_type: 'Report'
+
+report2user1:
+  id: 221
+  comment: report2-user1
+  user_id: 1
+  commentable_id: 2
+  commentable_type: 'Report'

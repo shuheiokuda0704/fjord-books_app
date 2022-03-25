@@ -70,7 +70,8 @@ end
 
 # 画像は生成も読み込みも時間がかかるので一部のデータだけにする
 User.order(:id).each.with_index(1) do |user, n|
-  next unless n % 8 == 0
+  next unless (n % 8).zero?
+
   image_url = Faker::Avatar.image(slug: user.email, size: '150x150')
   user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
 end
@@ -82,6 +83,72 @@ Relationship.destroy_all
 User.order(id: :desc).each do |user|
   User.where('id < ?', user.id).each do |other|
     user.follow(other)
+  end
+end
+
+Report.destroy_all
+
+Report.transaction do
+  Report.create!(
+    title: '1月1日',
+    content: '初日です。がんばります',
+    user_id: 1
+  )
+
+  Report.create!(
+    title: '1月2日',
+    content: '2日目です。ﾅﾆﾓﾜｶﾗﾅｲ',
+    user_id: 1
+  )
+
+  Report.create!(
+    title: '1月3日',
+    content: '3日目です。完全に理解した',
+    user_id: 1
+  )
+
+  55.times do |index|
+    Report.create!(
+      title: Faker::Lorem.word,
+      content: Faker::Lorem.word,
+      user_id: index + 1
+    )
+  end
+end
+
+Comment.destroy_all
+
+Comment.transaction do # rubocop:disable Metrics/BlockLength
+  10.times do |index|
+    Comment.create!(
+      comment: "(・∀・)ｲｲﾈ!! #{index + 1}",
+      user_id: index + 1,
+      commentable_id: 1,
+      commentable_type: 'Book'
+    )
+
+    Comment.create!(
+      comment: "(・∀・)ｲｲﾈ!! #{index + 1}",
+      user_id: index + 1,
+      commentable_id: 1,
+      commentable_type: 'Report'
+    )
+  end
+
+  55.times do |index|
+    Comment.create!(
+      comment: "(≧∇≦)b #{index + 1}",
+      user_id: index + 1,
+      commentable_id: index + 1,
+      commentable_type: 'Book'
+    )
+
+    Comment.create!(
+      comment: "(≧∇≦)b #{index + 1}",
+      user_id: index + 1,
+      commentable_id: index + 1,
+      commentable_type: 'Report'
+    )
   end
 end
 

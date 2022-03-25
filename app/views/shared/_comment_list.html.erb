@@ -1,0 +1,23 @@
+<h2><%= Comment.model_name.human %></h2>
+<% if commentable.comments.empty? %>
+  <div><%= t('views.common.no_items', name: Comment.model_name.human) %></div>
+<% else %>
+  <% commentable.comments.each do |comment| %>
+    <div>
+      <header>
+        <%= comment.user.name || comment.user.email %>
+        <%= l(comment.created_at, format: :ymdhms) %>
+      </header>
+      <div>
+        <%= comment.comment %>
+        <% if comment.user.eql? current_user %>
+          <br>
+          <%= link_to t('views.common.edit'), [:edit, commentable, comment] %></td>
+          <%= link_to t('views.common.destroy'), [commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+        <% end %>
+      </div>
+    </div>
+    <br>
+  <% end %>
+<% end %>
+<br>
